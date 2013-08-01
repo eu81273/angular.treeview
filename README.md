@@ -26,11 +26,11 @@ Add a tree to your application. See [Usage](#usage).
 
 Attributes of angular treeview are below.
 
-angular-treeview: the treeview directive
-tree-model : the tree model on $scope.
-node-id : each node's id
-node-label : each node's label
-node-children: each node's children
+- angular-treeview: the treeview directive
+- tree-model : the tree model on $scope.
+- node-id : each node's id
+- node-label : each node's label
+- node-children: each node's children
 
 Here is a simple example.
 
