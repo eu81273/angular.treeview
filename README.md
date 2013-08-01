@@ -1,10 +1,11 @@
-# Description
+Angular Treeview
+================
 
-Pure [angularjs](http://www.angularjs.org) based tree menu directive.
+Pure [AngularJS](http://www.angularjs.org) based tree menu directive.
 
-![screenshot](https://github.com/eu81273/angular.treeview/raw/master/img/preview.png)
+[![ScreenShot](https://github.com/eu81273/angular.treeview/raw/master/img/preview.png)](http://jsfiddle.net/eu81273/8LWUc/17/)
 
-# Installation
+## Installation
 
 Copy the script and css into your project and add a script and link tag to your page.
 
@@ -21,7 +22,7 @@ angular.module('myApp', ['angularTreeview']);
 
 Add a tree to your application. See [Usage](#usage).
 
-# Usage
+## Usage
 
 Attributes of angular treeview are below.
 
@@ -63,14 +64,16 @@ $scope.treedata =
 ];     
 ```
 
+## jsFiddle
+
+[![ScreenShot](https://github.com/eu81273/angular.treeview/raw/master/img/jsfiddle.png)](http://jsfiddle.net/eu81273/8LWUc/17/)
 
 
+## License
 
+The MIT License.
 
-# License
-
-The MIT License (MIT)  
-Copyright ⓒ 2013 AHN JAE-HA
+Copyright ⓒ 2013 AHN JAE-HA.
 
 See [LICENSE](https://github.com/eu81273/angular.treeview/blob/master/LICENSE)
 
