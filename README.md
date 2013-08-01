@@ -2,13 +2,15 @@
 
 Pure [angularjs](http://www.angularjs.org) based tree menu directive.
 
+![screenshot](https://github.com/eu81273/angular.treeview/raw/master/img/preview.png)
 
 # Installation
 
-Copy the script into your project and add a script tag to your page.
+Copy the script and css into your project and add a script and link tag to your page.
 
 ```html
-<script src="/angular.treeview.js"></script>
+<script type="text/javascript" src="/angular.treeview.js"></script>
+<link rel="stylesheet" type="text/css" href="css/angular.treeview.css">
 ```
 
 Add a dependency to your application module.
@@ -23,11 +25,11 @@ Add a tree to your application. See [Usage](#usage).
 
 Attributes of angular treeview are below.
 
-- angular-treeview: the treeview directive
-- tree-model : the tree model on $scope.
-- node-id : each node's id
-- node-label : each node's label
-- node-children: each node's children
+angular-treeview: the treeview directive
+tree-model : the tree model on $scope.
+node-id : each node's id
+node-label : each node's label
+node-children: each node's children
 
 Here is a simple example.
 
@@ -60,4 +62,15 @@ $scope.treedata =
     { "label" : "Guest", "id" : "role3", "children" : [] }
 ];     
 ```
+
+
+
+
+
+# License
+
+The MIT License (MIT)  
+Copyright ⓒ 2013 AHN JAE-HA
+
+See [LICENSE](angularTreeview/blob/master/LICENSE)
 
