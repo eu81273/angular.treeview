@@ -72,5 +72,5 @@ $scope.treedata =
 The MIT License (MIT)  
 Copyright ⓒ 2013 AHN JAE-HA
 
-See [LICENSE](angularTreeview/blob/master/LICENSE)
+See [LICENSE](https://github.com/eu81273/angular.treeview/blob/master/LICENSE)
 
