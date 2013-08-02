@@ -3,7 +3,7 @@ Angular Treeview
 
 Pure [AngularJS](http://www.angularjs.org) based tree menu directive.
 
-[![ScreenShot](https://github.com/eu81273/angular.treeview/raw/master/img/preview.png)](http://jsfiddle.net/eu81273/8LWUc/17/)
+[![ScreenShot](https://github.com/eu81273/angular.treeview/raw/master/img/preview.png)](http://jsfiddle.net/eu81273/8LWUc/18/)
 
 ## Installation
 
@@ -38,10 +38,10 @@ Here is a simple example.
 ```html
 <div
     data-angular-treeview="true"
-    data-tree-model="treedata"
-    data-node-id="id"
-    data-node-label="label"
-    data-node-children="children" >
+	data-tree-model="treedata"
+	data-node-id="id"
+	data-node-label="label"
+	data-node-children="children" >
 </div>
 ```
 
@@ -50,23 +50,37 @@ Example model:
 ```javascript
 $scope.treedata = 
 [
-    { "label" : "User", "id" : "role1", "children" : [
-        { "label" : "subUser1", "id" : "role11", "children" : [] },
-        { "label" : "subUser2", "id" : "role12", "children" : [
-            { "label" : "subUser2-1", "id" : "role121", "children" : [
-                { "label" : "subUser2-1-1", "id" : "role1211", "children" : [] },
-                { "label" : "subUser2-1-2", "id" : "role1212", "children" : [] }
-            ]}
-        ]}
-    ]},
-    { "label" : "Admin", "id" : "role2", "children" : [] },
-    { "label" : "Guest", "id" : "role3", "children" : [] }
-];     
+	{ "label" : "User", "id" : "role1", "children" : [
+		{ "label" : "subUser1", "id" : "role11", "children" : [] },
+		{ "label" : "subUser2", "id" : "role12", "children" : [
+			{ "label" : "subUser2-1", "id" : "role121", "children" : [
+				{ "label" : "subUser2-1-1", "id" : "role1211", "children" : [] },
+				{ "label" : "subUser2-1-2", "id" : "role1212", "children" : [] }
+			]}
+		]}
+	]},
+	{ "label" : "Admin", "id" : "role2", "children" : [] },
+	{ "label" : "Guest", "id" : "role3", "children" : [] }
+];	 
+```
+
+## Selection
+
+If tree node is selected, then that selected tree node is saved to $scope.currentNode. By using $watch, the controller can recognize the tree selection.
+
+
+```javascript
+$scope.$watch( 'currentNode', function( newObj, oldObj ) {
+    if( $scope.currentNode && angular.isObject($scope.currentNode) ) {
+        console.log( 'Node Selected!!' );
+        console.log( $scope.currentNode );
+    }
+}, false);
 ```
 
 ## jsFiddle
 
-[![ScreenShot](https://github.com/eu81273/angular.treeview/raw/master/img/jsfiddle.png)](http://jsfiddle.net/eu81273/8LWUc/17/)
+[![ScreenShot](https://github.com/eu81273/angular.treeview/raw/master/img/jsfiddle.png)](http://jsfiddle.net/eu81273/8LWUc/18/)
 
 
 ## License
@@ -76,4 +90,3 @@ The MIT License.
 Copyright ⓒ 2013 AHN JAE-HA.
 
 See [LICENSE](https://github.com/eu81273/angular.treeview/blob/master/LICENSE)
-
