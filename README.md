@@ -84,6 +84,10 @@ $scope.$watch( 'currentNode', function( newObj, oldObj ) {
 
 [jsFiddle - http://jsfiddle.net/eu81273/8LWUc/18/](http://jsfiddle.net/eu81273/8LWUc/18/)
 
+## Browser Compatibility
+
+Same with AngularJS. Safari, Chrome, Firefox, Opera, IE8, IE9 and mobile browsers (Android, Chrome Mobile, iOS Safari).
+
 ## License
 
 The MIT License.
