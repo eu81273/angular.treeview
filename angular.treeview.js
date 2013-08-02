@@ -46,7 +46,7 @@
 							'<i class="collapsed" data-ng-show="node.' + nodeChildren + '.length && node.collapsed" data-ng-click="selectNodeHead(node, $event)"></i>' + 
 							'<i class="expanded" data-ng-show="node.' + nodeChildren + '.length && !node.collapsed" data-ng-click="selectNodeHead(node, $event)"></i>' + 
 							'<i class="normal" data-ng-hide="node.' + nodeChildren + '.length"></i> ' + 
-							'<span data-ng-class="node.selected" data-ng-click="selectNode(node, $event)">{{node.' + nodeLabel + '}}</span>' + 
+							'<span data-ng-class="node.selected" data-ng-click="selectNodeLabel(node, $event)">{{node.' + nodeLabel + '}}</span>' + 
 							'<div data-ng-hide="node.collapsed" data-tree-model="node.' + nodeChildren + '" data-node-id=' + nodeId + ' data-node-label=' + nodeLabel + ' data-node-children=' + nodeChildren + '></div>' + 
 						'</li>' + 
 					'</ul>'; 
@@ -66,7 +66,7 @@
 
 
 						//if node head clicks,
-						scope.selectNodeHead = scope.selectNodeHead || function( node, $event ){
+						scope.selectNodeHead = scope.selectNodeHead || function( selectedNode, $event ){
 							//stop event bubbling 
 							if ( $event.stopPropagation ) $event.stopPropagation();
 							if ( $event.preventDefault ) $event.preventDefault();
@@ -74,25 +74,27 @@
 							$event.returnValue = false;
 
 							//Collapse or Expand
-							node.collapsed = !node.collapsed;
+							selectedNode.collapsed = !selectedNode.collapsed;
 						};
 
 						//if node label clicks,
-						scope.selectNode = scope.selectNode || function( node, $event ){
+						scope.selectNodeLabel = scope.selectNodeLabel || function( selectedNode, $event ){
 							//stop event bubbling 
 							if ( $event.stopPropagation ) $event.stopPropagation();
 							if ( $event.preventDefault ) $event.preventDefault();
 							$event.cancelBubble = true;
 							$event.returnValue = false;
 
-							//remove previous selection highlight
-							if( scope.selectedNode && scope.selectedNode.selected ) {
-								scope.selectedNode.selected = undefined;
+							//remove highlight from previous node
+							if( scope.currentNode && scope.currentNode.selected ) {
+								scope.currentNode.selected = undefined;
 							}
 
-							//set current selection highlight
-							scope.selectedNode = node;
-							scope.selectedNode.selected = 'selected'
+							//set highlight to selected node
+							selectedNode.selected = 'selected'
+
+							//set currentNode
+							scope.currentNode = selectedNode;
 						};
 					}
 
