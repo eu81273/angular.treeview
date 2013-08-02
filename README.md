@@ -82,6 +82,7 @@ $scope.$watch( 'currentNode', function( newObj, oldObj ) {
 
 [![ScreenShot](https://github.com/eu81273/angular.treeview/raw/master/img/jsfiddle.png)](http://jsfiddle.net/eu81273/8LWUc/18/)
 
+[jsFiddle - http://jsfiddle.net/eu81273/8LWUc/18/](http://jsfiddle.net/eu81273/8LWUc/18/)
 
 ## License
 
