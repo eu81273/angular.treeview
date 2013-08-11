@@ -1,5 +1,5 @@
 /*
-	@license Angular Treeview version 0.1.1
+	@license Angular Treeview version 0.1.2
 	ⓒ 2013 AHN JAE-HA http://github.com/eu81273/angular.treeview
 	License: MIT
 
@@ -60,18 +60,13 @@
 						scope.$watch( treeModel, function( _new, _old ) { 
 
 							//Rendering template.
-							element.empty().html( $compile( template )( scope ) );
+							element.html( $compile( template )( scope ) );
 
 						}, false ); //if true, re-rendering the treeview every clicks.
 
 
 						//if node head clicks,
 						scope.selectNodeHead = scope.selectNodeHead || function( selectedNode, $event ){
-							//stop event bubbling 
-							if ( $event.stopPropagation ) $event.stopPropagation();
-							if ( $event.preventDefault ) $event.preventDefault();
-							$event.cancelBubble = true;
-							$event.returnValue = false;
 
 							//Collapse or Expand
 							selectedNode.collapsed = !selectedNode.collapsed;
@@ -79,11 +74,6 @@
 
 						//if node label clicks,
 						scope.selectNodeLabel = scope.selectNodeLabel || function( selectedNode, $event ){
-							//stop event bubbling 
-							if ( $event.stopPropagation ) $event.stopPropagation();
-							if ( $event.preventDefault ) $event.preventDefault();
-							$event.cancelBubble = true;
-							$event.returnValue = false;
 
 							//remove highlight from previous node
 							if( scope.currentNode && scope.currentNode.selected ) {

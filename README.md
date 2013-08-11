@@ -3,7 +3,7 @@ Angular Treeview
 
 Pure [AngularJS](http://www.angularjs.org) based tree menu directive.
 
-[![ScreenShot](https://github.com/eu81273/angular.treeview/raw/master/img/preview.png)](http://jsfiddle.net/eu81273/8LWUc/18/)
+[![ScreenShot](https://github.com/eu81273/angular.treeview/raw/master/img/preview.png)](http://jsfiddle.net/eu81273/8LWUc/29/)
 
 ## Installation
 
@@ -80,13 +80,18 @@ $scope.$watch( 'currentNode', function( newObj, oldObj ) {
 
 ## jsFiddle
 
-[![ScreenShot](https://github.com/eu81273/angular.treeview/raw/master/img/jsfiddle.png)](http://jsfiddle.net/eu81273/8LWUc/18/)
+[![ScreenShot](https://github.com/eu81273/angular.treeview/raw/master/img/jsfiddle.png)](http://jsfiddle.net/eu81273/8LWUc/29/)
 
-[jsFiddle - http://jsfiddle.net/eu81273/8LWUc/18/](http://jsfiddle.net/eu81273/8LWUc/18/)
+[jsFiddle - http://jsfiddle.net/eu81273/8LWUc/29/](http://jsfiddle.net/eu81273/8LWUc/29/)
 
 ## Browser Compatibility
 
 Same with AngularJS. Safari, Chrome, Firefox, Opera, IE8, IE9 and mobile browsers (Android, Chrome Mobile, iOS Safari).
+
+## Changelogs
+
+### version 0.1.2
+- remove some jQuery dependency (Issue #2)
 
 ## License
 
