@@ -1,5 +1,5 @@
 /*
-	@license Angular Treeview version 0.1.2
+	@license Angular Treeview version 0.1.3
 	ⓒ 2013 AHN JAE-HA http://github.com/eu81273/angular.treeview
 	License: MIT
 
@@ -43,10 +43,10 @@
 				var template = 
 					'<ul>' + 
 						'<li data-ng-repeat="node in ' + treeModel + '">' + 
-							'<i class="collapsed" data-ng-show="node.' + nodeChildren + '.length && node.collapsed" data-ng-click="selectNodeHead(node, $event)"></i>' + 
-							'<i class="expanded" data-ng-show="node.' + nodeChildren + '.length && !node.collapsed" data-ng-click="selectNodeHead(node, $event)"></i>' + 
+							'<i class="collapsed" data-ng-show="node.' + nodeChildren + '.length && node.collapsed" data-ng-click="selectNodeHead(node)"></i>' + 
+							'<i class="expanded" data-ng-show="node.' + nodeChildren + '.length && !node.collapsed" data-ng-click="selectNodeHead(node)"></i>' + 
 							'<i class="normal" data-ng-hide="node.' + nodeChildren + '.length"></i> ' + 
-							'<span data-ng-class="node.selected" data-ng-click="selectNodeLabel(node, $event)">{{node.' + nodeLabel + '}}</span>' + 
+							'<span data-ng-class="node.selected" data-ng-click="selectNodeLabel(node)">{{node.' + nodeLabel + '}}</span>' + 
 							'<div data-ng-hide="node.collapsed" data-tree-model="node.' + nodeChildren + '" data-node-id=' + nodeId + ' data-node-label=' + nodeLabel + ' data-node-children=' + nodeChildren + '></div>' + 
 						'</li>' + 
 					'</ul>'; 
@@ -60,20 +60,20 @@
 						scope.$watch( treeModel, function( _new, _old ) { 
 
 							//Rendering template.
-							element.html( $compile( template )( scope ) );
+							element.html(null).append( $compile( template )( scope ) );
 
 						}, false ); //if true, re-rendering the treeview every clicks.
 
 
 						//if node head clicks,
-						scope.selectNodeHead = scope.selectNodeHead || function( selectedNode, $event ){
+						scope.selectNodeHead = scope.selectNodeHead || function( selectedNode ){
 
 							//Collapse or Expand
 							selectedNode.collapsed = !selectedNode.collapsed;
 						};
 
 						//if node label clicks,
-						scope.selectNodeLabel = scope.selectNodeLabel || function( selectedNode, $event ){
+						scope.selectNodeLabel = scope.selectNodeLabel || function( selectedNode ){
 
 							//remove highlight from previous node
 							if( scope.currentNode && scope.currentNode.selected ) {
@@ -91,7 +91,7 @@
 					//chlid nodes
 					else {
 						//Rendering template created.
-						element.html( $compile( template )( scope ) );
+						element.append( $compile( template )( scope ) );
 					}
 				}
 			}
