@@ -1,5 +1,5 @@
 /*
-	@license Angular Treeview version 0.1.3
+	@license Angular Treeview version 0.1.4
 	ⓒ 2013 AHN JAE-HA http://github.com/eu81273/angular.treeview
 	License: MIT
 
@@ -54,16 +54,9 @@
 
 				//check tree model
 				if( treeModel && treeModel.length ) {
+
 					//root node
 					if( attrs.angularTreeview ) {
-						//$watch tree model
-						scope.$watch( treeModel, function( _new, _old ) { 
-
-							//Rendering template.
-							element.html(null).append( $compile( template )( scope ) );
-
-						}, false ); //if true, re-rendering the treeview every clicks.
-
 
 						//if node head clicks,
 						scope.selectNodeHead = scope.selectNodeHead || function( selectedNode ){
@@ -88,11 +81,8 @@
 						};
 					}
 
-					//chlid nodes
-					else {
-						//Rendering template created.
-						element.append( $compile( template )( scope ) );
-					}
+					//Rendering template created.
+					element.html(null).append( $compile( template )( scope ) );
 				}
 			}
 		};

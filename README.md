@@ -3,7 +3,7 @@ Angular Treeview
 
 Pure [AngularJS](http://www.angularjs.org) based tree menu directive.
 
-[![ScreenShot](https://github.com/eu81273/angular.treeview/raw/master/img/preview.png)](http://jsfiddle.net/eu81273/8LWUc/31/)
+[![ScreenShot](https://github.com/eu81273/angular.treeview/raw/master/img/preview.png)](http://jsfiddle.net/eu81273/8LWUc/32/)
 
 ## Installation
 
@@ -80,9 +80,9 @@ $scope.$watch( 'currentNode', function( newObj, oldObj ) {
 
 ## jsFiddle
 
-[![ScreenShot](https://github.com/eu81273/angular.treeview/raw/master/img/jsfiddle.png)](http://jsfiddle.net/eu81273/8LWUc/31/)
+[![ScreenShot](https://github.com/eu81273/angular.treeview/raw/master/img/jsfiddle.png)](http://jsfiddle.net/eu81273/8LWUc/32/)
 
-[jsFiddle - http://jsfiddle.net/eu81273/8LWUc/31/](http://jsfiddle.net/eu81273/8LWUc/31/)
+[jsFiddle - http://jsfiddle.net/eu81273/8LWUc/32/](http://jsfiddle.net/eu81273/8LWUc/32/)
 
 ## Browser Compatibility
 
@@ -90,11 +90,14 @@ Same with AngularJS. Safari, Chrome, Firefox, Opera, IE8, IE9 and mobile browser
 
 ## Changelogs
 
+### version 0.1.4
+- prevented memory leaks.
+
 ### version 0.1.3
-- removed unnecessary codes
+- removed unnecessary codes.
 
 ### version 0.1.2
-- removed some jQuery dependency (Issue #2)
+- removed some jQuery dependency. (Issue #2)
 
 ## License
 
