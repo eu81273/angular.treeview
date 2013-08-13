@@ -90,13 +90,13 @@ Same with AngularJS. Safari, Chrome, Firefox, Opera, IE8, IE9 and mobile browser
 
 ## Changelogs
 
-### version 0.1.4
+#### version 0.1.4
 - prevented memory leaks.
 
-### version 0.1.3
+#### version 0.1.3
 - removed unnecessary codes.
 
-### version 0.1.2
+#### version 0.1.2
 - removed some jQuery dependency. (Issue #2)
 
 ## License
