@@ -3,7 +3,7 @@ Angular Treeview
 
 Pure [AngularJS](http://www.angularjs.org) based tree menu directive.
 
-[![ScreenShot](https://github.com/eu81273/angular.treeview/raw/master/img/preview.png)](http://jsfiddle.net/eu81273/8LWUc/32/)
+[![ScreenShot](https://github.com/eu81273/angular.treeview/raw/master/img/preview.png)](http://jsfiddle.net/eu81273/8LWUc/)
 
 ## Installation
 
@@ -26,11 +26,12 @@ Add a tree to your application. See [Usage](#usage).
 
 Attributes of angular treeview are below.
 
-- angular-treeview: the treeview directive
+- angular-treeview: the treeview directive.
+- tree-id : each tree's unique id.
 - tree-model : the tree model on $scope.
-- node-id : each node's id
-- node-label : each node's label
-- node-children: each node's children
+- node-id : each node's id.
+- node-label : each node's label.
+- node-children: each node's children.
 
 Here is a simple example.
 
@@ -38,6 +39,7 @@ Here is a simple example.
 ```html
 <div
     data-angular-treeview="true"
+	data-tree-id="abc"
 	data-tree-model="treedata"
 	data-node-id="id"
 	data-node-label="label"
@@ -66,29 +68,38 @@ $scope.treedata =
 
 ## Selection
 
-If tree node is selected, then that selected tree node is saved to $scope.currentNode. By using $watch, the controller can recognize the tree selection.
+If tree node is selected, then that selected tree node is saved to $scope."TREE ID".currentNode. By using $watch, the controller can recognize the tree selection.
 
 
 ```javascript
-$scope.$watch( 'currentNode', function( newObj, oldObj ) {
-    if( $scope.currentNode && angular.isObject($scope.currentNode) ) {
+$scope.$watch( 'abc.currentNode', function( newObj, oldObj ) {
+    if( $scope.abc && angular.isObject($scope.abc.currentNode) ) {
         console.log( 'Node Selected!!' );
-        console.log( $scope.currentNode );
+        console.log( $scope.abc.currentNode );
     }
 }, false);
 ```
 
-## jsFiddle
+## Examples
 
-[![ScreenShot](https://github.com/eu81273/angular.treeview/raw/master/img/jsfiddle.png)](http://jsfiddle.net/eu81273/8LWUc/32/)
+#### Basic example
+[![ScreenShot](https://github.com/eu81273/angular.treeview/raw/master/img/jsfiddle01.png)](http://jsfiddle.net/eu81273/8LWUc/)
 
-[jsFiddle - http://jsfiddle.net/eu81273/8LWUc/32/](http://jsfiddle.net/eu81273/8LWUc/32/)
+[jsFiddle - http://jsfiddle.net/eu81273/8LWUc/](http://jsfiddle.net/eu81273/8LWUc/)
+
+#### Multiple treeview example
+[![ScreenShot](https://github.com/eu81273/angular.treeview/raw/master/img/jsfiddle02.png)](http://jsfiddle.net/eu81273/b9Pnw/)
+
+[jsFiddle - http://jsfiddle.net/eu81273/b9Pnw/](http://jsfiddle.net/eu81273/b9Pnw/)
 
 ## Browser Compatibility
 
 Same with AngularJS. Safari, Chrome, Firefox, Opera, IE8, IE9 and mobile browsers (Android, Chrome Mobile, iOS Safari).
 
 ## Changelogs
+
+#### version 0.1.5
+- multiple treeview support. (Thanks to Axel Pesme)
 
 #### version 0.1.4
 - prevented memory leaks.

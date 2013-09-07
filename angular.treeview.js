@@ -1,11 +1,12 @@
 /*
-	@license Angular Treeview version 0.1.4
+	@license Angular Treeview version 0.1.5
 	ⓒ 2013 AHN JAE-HA http://github.com/eu81273/angular.treeview
 	License: MIT
 
 
 	[TREE attribute]
 	angular-treeview: the treeview directive
+	tree-id : each tree's unique id.
 	tree-model : the tree model on $scope.
 	node-id : each node's id
 	node-label : each node's label
@@ -13,6 +14,7 @@
 
 	<div
 		data-angular-treeview="true"
+		data-tree-id="tree"
 		data-tree-model="roleList"
 		data-node-id="roleId"
 		data-node-label="roleName"
@@ -27,6 +29,9 @@
 		return {
 			restrict: 'A',
 			link: function ( scope, element, attrs ) {
+				//tree id
+				var treeId = attrs.treeId;
+			
 				//tree model
 				var treeModel = attrs.treeModel;
 
@@ -43,45 +48,48 @@
 				var template = 
 					'<ul>' + 
 						'<li data-ng-repeat="node in ' + treeModel + '">' + 
-							'<i class="collapsed" data-ng-show="node.' + nodeChildren + '.length && node.collapsed" data-ng-click="selectNodeHead(node)"></i>' + 
-							'<i class="expanded" data-ng-show="node.' + nodeChildren + '.length && !node.collapsed" data-ng-click="selectNodeHead(node)"></i>' + 
+							'<i class="collapsed" data-ng-show="node.' + nodeChildren + '.length && node.collapsed" data-ng-click="' + treeId + '.selectNodeHead(node)"></i>' + 
+							'<i class="expanded" data-ng-show="node.' + nodeChildren + '.length && !node.collapsed" data-ng-click="' + treeId + '.selectNodeHead(node)"></i>' + 
 							'<i class="normal" data-ng-hide="node.' + nodeChildren + '.length"></i> ' + 
-							'<span data-ng-class="node.selected" data-ng-click="selectNodeLabel(node)">{{node.' + nodeLabel + '}}</span>' + 
-							'<div data-ng-hide="node.collapsed" data-tree-model="node.' + nodeChildren + '" data-node-id=' + nodeId + ' data-node-label=' + nodeLabel + ' data-node-children=' + nodeChildren + '></div>' + 
+							'<span data-ng-class="node.selected" data-ng-click="' + treeId + '.selectNodeLabel(node)">{{node.' + nodeLabel + '}}</span>' + 
+							'<div data-ng-hide="node.collapsed" data-tree-id="' + treeId + '" data-tree-model="node.' + nodeChildren + '" data-node-id=' + nodeId + ' data-node-label=' + nodeLabel + ' data-node-children=' + nodeChildren + '></div>' + 
 						'</li>' + 
 					'</ul>'; 
 
 
-				//check tree model
-				if( treeModel && treeModel.length ) {
+				//check tree id, tree model
+				if( treeId && treeModel ) {
 
 					//root node
 					if( attrs.angularTreeview ) {
+					
+						//create tree object if not exists
+						scope[treeId] = scope[treeId] || {};
 
 						//if node head clicks,
-						scope.selectNodeHead = scope.selectNodeHead || function( selectedNode ){
+						scope[treeId].selectNodeHead = scope[treeId].selectNodeHead || function( selectedNode ){
 
 							//Collapse or Expand
 							selectedNode.collapsed = !selectedNode.collapsed;
 						};
 
 						//if node label clicks,
-						scope.selectNodeLabel = scope.selectNodeLabel || function( selectedNode ){
+						scope[treeId].selectNodeLabel = scope[treeId].selectNodeLabel || function( selectedNode ){
 
 							//remove highlight from previous node
-							if( scope.currentNode && scope.currentNode.selected ) {
-								scope.currentNode.selected = undefined;
+							if( scope[treeId].currentNode && scope[treeId].currentNode.selected ) {
+								scope[treeId].currentNode.selected = undefined;
 							}
 
 							//set highlight to selected node
 							selectedNode.selected = 'selected'
 
 							//set currentNode
-							scope.currentNode = selectedNode;
+							scope[treeId].currentNode = selectedNode;
 						};
 					}
 
-					//Rendering template created.
+					//Rendering template.
 					element.html(null).append( $compile( template )( scope ) );
 				}
 			}
