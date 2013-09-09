@@ -1,5 +1,5 @@
 /*
-	@license Angular Treeview version 0.1.5
+	@license Angular Treeview version 0.1.6
 	ⓒ 2013 AHN JAE-HA http://github.com/eu81273/angular.treeview
 	License: MIT
 
@@ -90,7 +90,7 @@
 					}
 
 					//Rendering template.
-					element.html(null).append( $compile( template )( scope ) );
+					element.html('').append( $compile( template )( scope ) );
 				}
 			}
 		};

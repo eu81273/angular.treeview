@@ -98,8 +98,11 @@ Same with AngularJS. Safari, Chrome, Firefox, Opera, IE8, IE9 and mobile browser
 
 ## Changelogs
 
+#### version 0.1.6
+- Fixed the bug that 'null' string appears before each 'div' generated. (Thanks to Iaac)
+
 #### version 0.1.5
-- multiple treeview support. (Thanks to Axel Pesme)
+- support multiple treeview. (Thanks to Axel Pesme)
 
 #### version 0.1.4
 - prevented memory leaks.
