@@ -45,16 +45,16 @@
 				var nodeChildren = attrs.nodeChildren || 'children';
 
 				//tree template
-				var template = 
-					'<ul>' + 
-						'<li data-ng-repeat="node in ' + treeModel + '">' + 
-							'<i class="collapsed" data-ng-show="node.' + nodeChildren + '.length && node.collapsed" data-ng-click="' + treeId + '.selectNodeHead(node)"></i>' + 
-							'<i class="expanded" data-ng-show="node.' + nodeChildren + '.length && !node.collapsed" data-ng-click="' + treeId + '.selectNodeHead(node)"></i>' + 
-							'<i class="normal" data-ng-hide="node.' + nodeChildren + '.length"></i> ' + 
-							'<span data-ng-class="node.selected" data-ng-click="' + treeId + '.selectNodeLabel(node)">{{node.' + nodeLabel + '}}</span>' + 
-							'<div data-ng-hide="node.collapsed" data-tree-id="' + treeId + '" data-tree-model="node.' + nodeChildren + '" data-node-id=' + nodeId + ' data-node-label=' + nodeLabel + ' data-node-children=' + nodeChildren + '></div>' + 
-						'</li>' + 
-					'</ul>'; 
+				var template =
+					'<ul>' +
+						'<li data-ng-repeat="node in ' + treeModel + '">' +
+							'<i class="collapsed" data-ng-show="node.' + nodeChildren + '.length && node.collapsed" data-ng-click="' + treeId + '.selectNodeHead(node)"></i>' +
+							'<i class="expanded" data-ng-show="node.' + nodeChildren + '.length && !node.collapsed" data-ng-click="' + treeId + '.selectNodeHead(node)"></i>' +
+							'<i class="normal" data-ng-hide="node.' + nodeChildren + '.length"></i> ' +
+							'<span data-ng-class="node.selected" data-ng-click="' + treeId + '.selectNodeLabel(node)">{{node.' + nodeLabel + '}}</span>' +
+							'<div data-ng-hide="node.collapsed" data-tree-id="' + treeId + '" data-tree-model="node.' + nodeChildren + '" data-node-id=' + nodeId + ' data-node-label=' + nodeLabel + ' data-node-children=' + nodeChildren + '></div>' +
+						'</li>' +
+					'</ul>';
 
 
 				//check tree id, tree model
@@ -82,7 +82,7 @@
 							}
 
 							//set highlight to selected node
-							selectedNode.selected = 'selected'
+							selectedNode.selected = 'selected';
 
 							//set currentNode
 							scope[treeId].currentNode = selectedNode;
