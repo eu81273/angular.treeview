@@ -29,13 +29,13 @@ div[data-tree-model] li {
 
 div[data-tree-model] li .expanded {
   padding: 1px 10px;
-  background-image: url("../img/folder.png");
+  background-image: url("../img/sub.png");
   background-repeat: no-repeat;
 }
 
 div[data-tree-model] li .collapsed {
   padding: 1px 10px;
-  background-image: url("../img/folder-closed.png");
+  background-image: url("../img/add.png");
   background-repeat: no-repeat;
 }
 
@@ -50,7 +50,7 @@ div[data-tree-model] li i, div[data-tree-model] li span {
 }
 
 div[data-tree-model] li .selected {
-  background-color: #aaddff;
+  background-color: lightgrey;
   font-weight: bold;
   padding: 1px 5px;
 }
