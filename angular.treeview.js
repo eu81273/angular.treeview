@@ -52,8 +52,7 @@
 							'<i class="expanded" data-ng-show="node.' + nodeChildren + '.length && !node.collapsed" data-ng-click="' + treeId + '.selectNodeHead(node)"></i>' +
 							'<i class="normal" data-ng-hide="node.' + nodeChildren + '.length"></i> ' +
 							'<span data-ng-class="node.selected" data-ng-click="' + treeId + '.selectNodeLabel(node)">{{node.' + nodeLabel + '}}</span>' +
-							'<div data-ng-hide="node.collapsed" data-tree-id="' + treeId + '" data-tree-model="node.' + nodeChildren + '" data-node-id=' + nodeId + ' data-node-label=' + nodeLabel + ' data-node-children=' + nodeChildren + '></div>' +
-						'</li>' +
+                            '<div data-ng-hide="node.collapsed"  data-tree-id="'+treeId+'" data-tree-model="node.' + nodeChildren + '" data-node-id="' + nodeId +'" data-node-label="' + nodeLabel + '" data-node-children="' + nodeChildren + '"></div>' +'</li>' +
 					'</ul>';
 
 
@@ -75,6 +74,9 @@
 
 						//if node label clicks,
 						scope[treeId].selectNodeLabel = scope[treeId].selectNodeLabel || function( selectedNode ){
+
+                            //Collapse or Expand
+                            selectedNode.collapsed = !selectedNode.collapsed;
 
 							//remove highlight from previous node
 							if( scope[treeId].currentNode && scope[treeId].currentNode.selected ) {
