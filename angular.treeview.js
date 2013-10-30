@@ -1,5 +1,5 @@
 /*
-	@license Angular Treeview version 0.1.6
+	@license Angular Treeview version 0.1.7
 	ⓒ 2013 AHN JAE-HA http://github.com/eu81273/angular.treeview
 	License: MIT
 

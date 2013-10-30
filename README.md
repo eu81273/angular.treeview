@@ -47,7 +47,8 @@ Here is a simple example.
 	data-node-label="label"
 	data-node-children="children" 
     data-node-toggleclick="true"
-    data-node-highlight="true" >
+    data-node-highlight="true" 
+>
 </div>
 ```
 
