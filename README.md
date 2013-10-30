@@ -32,6 +32,8 @@ Attributes of angular treeview are below.
 - node-id : each node's id.
 - node-label : each node's label.
 - node-children: each node's children.
+- node-toggleclick: when a node's label is clicked, toggle the folder
+- node-highlight:  turn click highlighting on and off
 
 Here is a simple example.
 
@@ -43,7 +45,10 @@ Here is a simple example.
 	data-tree-model="treedata"
 	data-node-id="id"
 	data-node-label="label"
-	data-node-children="children" >
+	data-node-children="children" 
+    data-node-toggleclick="true"
+    data-node-highlight="true" 
+>
 </div>
 ```
 
