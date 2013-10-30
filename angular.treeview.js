@@ -18,7 +18,10 @@
 		data-tree-model="roleList"
 		data-node-id="roleId"
 		data-node-label="roleName"
-		data-node-children="children" >
+		data-node-children="children" 
+        data-node-toggleclick="true"
+        data-node-highlight="false"
+		>
 	</div>
 */
 
@@ -43,6 +46,12 @@
 
 				//children
 				var nodeChildren = attrs.nodeChildren || 'children';
+
+				//node open/click on click
+                var nodeToggleClick = attrs.nodeToggleclick || 'false';
+
+                //node highlight on click
+                var nodeHighlightOnClick = attrs.nodeHighlight || 'true';
 
 				//tree template
 				var template =
@@ -81,8 +90,15 @@
 								scope[treeId].currentNode.selected = undefined;
 							}
 
-							//set highlight to selected node
-							selectedNode.selected = 'selected';
+                            //set highlight to selected node
+                            if (nodeHighlightOnClick == 'true') {
+                                selectedNode.selected = 'selected';
+                            }
+                            
+                            //set collapsed if collapsable on label click
+                            if (nodeToggleClick == 'true') {
+                                selectedNode.collapsed = !selectedNode.collapsed;
+                            }
 
 							//set currentNode
 							scope[treeId].currentNode = selectedNode;
