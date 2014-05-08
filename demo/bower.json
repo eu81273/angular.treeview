@@ -1,0 +1,20 @@
+{
+  "name": "angular.treeview",
+  "main": "angular.treeview.js",
+  "version": "0.0.0",
+  "homepage": "https://github.com/eu81273/angular.treeview",
+  "authors": [
+    "Massimiliano Innocenti <massimiliano.innocenti@acm-e.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "~1.2.16"
+  }
+}
