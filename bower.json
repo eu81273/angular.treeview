@@ -1,0 +1,17 @@
+{
+  "name": "angular.treeview",
+  "version": "0.1.0",
+  "homepage": "https://github.com/Thorgrim901/angular.treeview",
+  "dependencies": {
+    "angular": ">= 1.0.8"
+  },
+  "authors": [
+	"eu81273 <eu81273@gmail.com>"
+  ],
+  "main": "./release/angular.treeview.js",
+  "ignore": [
+    "**/.*",
+    "sample",
+	"bower_components"
+  ]
+}

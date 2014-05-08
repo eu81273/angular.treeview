@@ -44,18 +44,41 @@
 				//children
 				var nodeChildren = attrs.nodeChildren || 'children';
 
+				//is checkable
+				var checkable = eval(attrs.checkable) || false;
+
 				//tree template
 				var template =
 					'<ul>' +
-						'<li data-ng-repeat="node in ' + treeModel + '">' +
+						'<li data-ng-repeat="node in ' + treeModel + '">';
+				if (checkable) {
+					template +=
+							'<input type="checkbox" data-ng-model="node.checked" data-ng-click="' + treeId + '.toggleChildren(node)" />';
+				}
+				template +=
 							'<i class="collapsed" data-ng-show="node.' + nodeChildren + '.length && node.collapsed" data-ng-click="' + treeId + '.selectNodeHead(node)"></i>' +
 							'<i class="expanded" data-ng-show="node.' + nodeChildren + '.length && !node.collapsed" data-ng-click="' + treeId + '.selectNodeHead(node)"></i>' +
 							'<i class="normal" data-ng-hide="node.' + nodeChildren + '.length"></i> ' +
 							'<span data-ng-class="node.selected" data-ng-click="' + treeId + '.selectNodeLabel(node)">{{node.' + nodeLabel + '}}</span>' +
-							'<div data-ng-hide="node.collapsed" data-tree-id="' + treeId + '" data-tree-model="node.' + nodeChildren + '" data-node-id=' + nodeId + ' data-node-label=' + nodeLabel + ' data-node-children=' + nodeChildren + '></div>' +
+							'<div' +
+								' data-ng-hide="node.collapsed"' +
+								' data-checkable="' + checkable + '"' + 
+								' data-tree-id="' + treeId + '"' + 
+								' data-tree-model="node.' + nodeChildren + '"' +
+								' data-node-id=' + nodeId +
+								' data-node-label=' + nodeLabel +
+								' data-node-children=' + nodeChildren + '></div>' +
 						'</li>' +
 					'</ul>';
 
+				var toggleChecked = function(node, checkValue) {
+					var children = eval("node." + nodeChildren) || [];
+
+					for (var i = 0; i < children.length; i++) {
+						children[i].checked = checkValue;
+						toggleChecked(children[i], checkValue);
+					};
+				};
 
 				//check tree id, tree model
 				if( treeId && treeModel ) {
@@ -65,6 +88,13 @@
 					
 						//create tree object if not exists
 						scope[treeId] = scope[treeId] || {};
+
+						//create function that check children
+						scope[treeId].toggleChildren = function(node) {
+
+							// !node.checked because ng-click starts before the ng-model
+							toggleChecked(node, !node.checked);
+						};
 
 						//if node head clicks,
 						scope[treeId].selectNodeHead = scope[treeId].selectNodeHead || function( selectedNode ){
