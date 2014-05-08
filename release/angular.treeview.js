@@ -72,9 +72,9 @@
 					'</ul>';
 
 				var toggleChecked = function(node, checkValue) {
-					var children = eval("node." + nodeChildren);
+					var children = eval("node." + nodeChildren) || [];
 
-					for (var i = children.length - 1; i >= 0; i--) {
+					for (var i = 0; i < children.length; i++) {
 						children[i].checked = checkValue;
 						toggleChecked(children[i], checkValue);
 					};
