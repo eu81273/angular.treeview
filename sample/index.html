@@ -1,0 +1,53 @@
+<!doctype html>
+<html id="ng-app" class="no-js">
+<head>
+	<link type="text/css" rel="stylesheet" href="css/angular.treeview.css">
+</head>
+<body>
+	<div ng-app="myApp">
+	  	<div ng-controller="myController">
+		    <div
+		      data-angular-treeview="true"
+		      data-checkable="true"
+		      data-tree-id="mytree"
+		      data-tree-model="roleList">
+		    </div>
+		</div>
+    </div>
+
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../release/angular.treeview.js"></script>
+    <script>
+    (function(){
+	  	//angular module
+	  	var myApp = angular.module('myApp', ['angularTreeview']);
+
+	  	//test controller
+	 	myApp.controller('myController', function($scope){
+		    //temporary node
+		    $scope.temporaryNode = {
+		        children: []
+		    };
+
+		  	//test tree model
+		    $scope.roleList = [
+		        { label : "User", id : "role1", children : [
+	          		{ label : "subUser1", id : "role11", children : [] },
+	          		{ label : "subUser2", id : "role12", children : [
+	            		{ label : "subUser2-1", id : "role121", children : [
+	              			{ label : "subUser2-1-1", id : "role1211", children : [] },
+	              			{ label : "subUser2-1-2", id : "role1212", children : [] }
+		            	]}
+		          	]}
+		        ]},
+
+		        { label : "Admin", id : "role2", children : [] },
+
+		        { label : "Guest", id : "role3", children : [] }
+			];
+	  	});
+		  
+	})();
+    </script>
+</body>
+</html>
