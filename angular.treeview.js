@@ -51,8 +51,8 @@
 					'<ul>' +
 						'<li data-ng-repeat="node in ' + treeModel + '">' +
 							'<i class="collapsed {{node.classCollapsed}}" data-ng-show="node.' + nodeChildren + '.length && node.collapsed" data-ng-click="' + treeId + '.selectNodeHead(node)"></i>' +
-							'<i class="expanded {{node.classCollapsed}}" data-ng-show="node.' + nodeChildren + '.length && !node.collapsed" data-ng-click="' + treeId + '.selectNodeHead(node)"></i>' +
-							'<i class="normal {{node.classCollapsed}}" data-ng-hide="node.' + nodeChildren + '.length"></i> ' +
+							'<i class="expanded {{node.classExpanded}}" data-ng-show="node.' + nodeChildren + '.length && !node.collapsed" data-ng-click="' + treeId + '.selectNodeHead(node)"></i>' +
+							'<i class="normal {{node.classNormal}}" data-ng-hide="node.' + nodeChildren + '.length"></i> ' +
 							'<span data-ng-class="node.selected" data-ng-click="' + treeId + '.selectNodeLabel(node)">{{node.' + nodeLabel + '}}</span>' +
 							'<div id="' + nodeID +'" data-ng-hide="node.collapsed" data-tree-id="' + treeId + '" data-tree-model="node.' + nodeChildren + '" data-node-id=' + nodeId + ' data-node-label=' + nodeLabel + ' data-node-children=' + nodeChildren + '></div>' +
 						'</li>' +
