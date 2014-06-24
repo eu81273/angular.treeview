@@ -1,0 +1,14 @@
+{
+  "name": "angular.treeview",
+  "homepage": "https://github.com/luisalvarez/angular.treeview",
+  "_release": "e72dd58723",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "e72dd587233fa392e7da8e6e58622d61a100fa24"
+  },
+  "_source": "https://github.com/luisalvarez/angular.treeview.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/luisalvarez/angular.treeview.git",
+  "_direct": true
+}
