@@ -12,6 +12,8 @@
 	node-label : each node's label
 	node-children: each node's children
 	data-node-filter: filter to search
+
+
 	<div
 		data-angular-treeview="true"
 		data-tree-id="tree"
