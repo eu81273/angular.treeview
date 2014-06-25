@@ -11,6 +11,8 @@
 	node-id : each node's id
 	node-label : each node's label
 	node-children: each node's children
+	data-node-filter: filter to search
+
 
 	<div
 		data-angular-treeview="true"
@@ -18,7 +20,8 @@
 		data-tree-model="roleList"
 		data-node-id="roleId"
 		data-node-label="roleName"
-		data-node-children="children" >
+		data-node-children="children" 
+		data-node-filter="filter">
 	</div>
 */
 
@@ -44,15 +47,21 @@
 				//children
 				var nodeChildren = attrs.nodeChildren || 'children';
 
+				//filter
+				var nodeFilter =attrs.nodeFilter || '';
+				var filter=null;
+				if(nodeFilter!==''){
+					filter=' | filter: ' + nodeFilter;
+				}
 				//tree template
 				var template =
 					'<ul>' +
-						'<li data-ng-repeat="node in ' + treeModel + '">' +
+						'<li data-ng-repeat="node in ' + treeModel + filter+'">' +
 							'<i class="collapsed" data-ng-show="node.' + nodeChildren + '.length && node.collapsed" data-ng-click="' + treeId + '.selectNodeHead(node)"></i>' +
 							'<i class="expanded" data-ng-show="node.' + nodeChildren + '.length && !node.collapsed" data-ng-click="' + treeId + '.selectNodeHead(node)"></i>' +
 							'<i class="normal" data-ng-hide="node.' + nodeChildren + '.length"></i> ' +
 							'<span data-ng-class="node.selected" data-ng-click="' + treeId + '.selectNodeLabel(node)">{{node.' + nodeLabel + '}}</span>' +
-							'<div data-ng-hide="node.collapsed" data-tree-id="' + treeId + '" data-tree-model="node.' + nodeChildren + '" data-node-id=' + nodeId + ' data-node-label=' + nodeLabel + ' data-node-children=' + nodeChildren + '></div>' +
+							'<div data-ng-hide="node.collapsed" data-tree-id="' + treeId + '" data-tree-model="node.' + nodeChildren + '" data-node-id=' + nodeId + ' data-node-label=' + nodeLabel + ' data-node-children=' + nodeChildren + ' data-node-filter='+nodeFilter+'></div>' +
 						'</li>' +
 					'</ul>';
 
