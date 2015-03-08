@@ -15,9 +15,12 @@
 	<div
 		data-angular-treeview="true"
 		data-tree-id="tree"
-		data-tree-model="roleList"
-		data-node-id="roleId"
-		data-node-label="roleName"
+		data-tree-model="fileList"
+		data-node-id="id"
+		data-node-label="name"
+		data-node-type="type"
+		data-node-type-container="folder"
+		data-node-type-leaf="file"
 		data-node-children="children" >
 	</div>
 */
@@ -29,30 +32,32 @@
 		return {
 			restrict: 'A',
 			link: function ( scope, element, attrs ) {
-				//tree id
 				var treeId = attrs.treeId;
-			
-				//tree model
 				var treeModel = attrs.treeModel;
-
-				//node id
 				var nodeId = attrs.nodeId || 'id';
-
-				//node label
 				var nodeLabel = attrs.nodeLabel || 'label';
-
-				//children
 				var nodeChildren = attrs.nodeChildren || 'children';
+				var nodeType = attrs.nodeType || 'type';
+				var nodeTypeContainer = attrs.nodeTypeContainer || 'folder';
+				var nodeTypeLeaf = attrs.nodeTypeLeaf || 'file';
 
 				//tree template
 				var template =
 					'<ul>' +
 						'<li data-ng-repeat="node in ' + treeModel + '">' +
-							'<i class="collapsed" data-ng-show="node.' + nodeChildren + '.length && node.collapsed" data-ng-click="' + treeId + '.selectNodeHead(node)"></i>' +
-							'<i class="expanded" data-ng-show="node.' + nodeChildren + '.length && !node.collapsed" data-ng-click="' + treeId + '.selectNodeHead(node)"></i>' +
-							'<i class="normal" data-ng-hide="node.' + nodeChildren + '.length"></i> ' +
+							'<span data-ng-show="node.' + nodeType + ' == \'' + nodeTypeContainer + '\'">' +
+								'<i class="collapsed" data-ng-show="node.collapsed" data-ng-click="' + treeId + '.selectNodeHead(node)"></i>' +
+								'<i class="expanded" data-ng-show="!node.collapsed" data-ng-click="' + treeId + '.selectNodeHead(node)"></i>' +
+							'</span>' +
+							'<span data-ng-show="node.' + nodeType + ' == \'' + nodeTypeLeaf + '\'">' +
+								'<i class="normal" data-ng-hide="node.' + nodeChildren + '.length"></i> ' +
+							'</span>' +
 							'<span data-ng-class="node.selected" data-ng-click="' + treeId + '.selectNodeLabel(node)">{{node.' + nodeLabel + '}}</span>' +
-							'<div data-ng-hide="node.collapsed" data-tree-id="' + treeId + '" data-tree-model="node.' + nodeChildren + '" data-node-id=' + nodeId + ' data-node-label=' + nodeLabel + ' data-node-children=' + nodeChildren + '></div>' +
+
+							// template recurrency
+							'<div data-ng-hide="node.collapsed" data-tree-id="' + treeId + '" data-tree-model="node.' + nodeChildren + '" data-node-id=' + nodeId +
+								' data-node-label=' + nodeLabel + ' data-node-children=' + nodeChildren + ' data-node-type=' + nodeType +
+								' data-node-type-container=' + nodeTypeContainer + ' data-node-type-leaf=' + nodeTypeLeaf + '></div>' +
 						'</li>' +
 					'</ul>';
 
