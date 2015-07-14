@@ -1,0 +1,11 @@
+{
+    "name": "angular-treeview",
+    "homepage": "https://github.com/eu81273/angular.treeview",
+    "main": [
+        "./angular.treeview.js",
+        "./css/angular.treeview.css"
+    ],
+    "keywords": [
+        "treeview"
+    ]
+}
