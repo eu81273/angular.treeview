@@ -22,16 +22,19 @@ angular.module('myApp', ['angularTreeview']);
 
 Add a tree to your application. See [Usage](#usage).
 
-## Usage
+## Usage (modified in fork)
 
 Attributes of angular treeview are below.
 
-- angular-treeview: the treeview directive.
-- tree-id : each tree's unique id.
-- tree-model : the tree model on $scope.
-- node-id : each node's id.
-- node-label : each node's label.
-- node-children: each node's children.
+- angular-treeview: the treeview directive
+- tree-id : tree's unique id
+- tree-model : the tree model on $scope
+- node-id : each node's id
+- node-label : name of key determining a label
+- node-type : each node's type (look `type-container` and `type-leaf`)
+- node-type-container : name of type for nodes which are containers (has children)
+- node-type-leaf : name of type for nodes which don't have children
+- node-children: each node's children
 
 Here is a simple example.
 
@@ -39,10 +42,13 @@ Here is a simple example.
 ```html
 <div
     data-angular-treeview="true"
-	data-tree-id="abc"
-	data-tree-model="treedata"
+	data-tree-id="myFileList"
+	data-tree-model="fileList"
 	data-node-id="id"
-	data-node-label="label"
+	data-node-label="name"
+	data-node-type="type"
+	data-node-type-container="folder"
+	data-node-type-leaf="file"
 	data-node-children="children" >
 </div>
 ```
@@ -52,19 +58,21 @@ Example model:
 ```javascript
 $scope.treedata = 
 [
-	{ "label" : "User", "id" : "role1", "children" : [
-		{ "label" : "subUser1", "id" : "role11", "children" : [] },
-		{ "label" : "subUser2", "id" : "role12", "children" : [
-			{ "label" : "subUser2-1", "id" : "role121", "children" : [
-				{ "label" : "subUser2-1-1", "id" : "role1211", "children" : [] },
-				{ "label" : "subUser2-1-2", "id" : "role1212", "children" : [] }
+	{ "name": "Photos", "id": 1, "type": "folder", "children": [
+		{ "name": "my photo.jpg", "id": 11, "type": "file", "children": [] },
+		{ "name": "Holidays", "id": 12, "type": "folder", "children" : [
+			{ "name": "2015 - March", "id": 121, "type": "folder", "children": [
+				{ "name": "photo1.jpg", "id": 1211, "type": "file", "children" : [] },
+				{ "name": "photo2.jpg", "id": 1212, "type": "file", "children": [] }
 			]}
 		]}
 	]},
-	{ "label" : "Admin", "id" : "role2", "children" : [] },
-	{ "label" : "Guest", "id" : "role3", "children" : [] }
+	{ "name": "Videos", "id": 2, "type": "folder", "children": [] },
+	{ "name": "Notes", "id": 3, "type": "folder", "children": [] }
 ];	 
 ```
+
+Note: unfortunately, AFAIR, even file nodes need empty `children` collection. Probably needs a fix (PRs?).
 
 ## Selection
 
