@@ -45,6 +45,11 @@ div[data-tree-model] li .normal {
   background-repeat: no-repeat;
 }
 
+div[data-tree-model] li .custom {
+    padding: 1px 10px;
+    background-repeat: no-repeat;
+}
+
 div[data-tree-model] li i, div[data-tree-model] li span {
   cursor: pointer;
 }
