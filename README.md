@@ -66,6 +66,12 @@ $scope.treedata =
 ];	 
 ```
 
+Example model with custom icons via css classes
+```javascript
+$scope.treedata = 
+[{ "label" : "User", "id" : "role1", "classCollapsed" : "myCollapsedIcon", "classExpanded" : "myExpandedIcon", "classNormal" : "myNormalIdon"}];
+```
+
 ## Selection
 
 If tree node is selected, then that selected tree node is saved to $scope."TREE ID".currentNode. By using $watch, the controller can recognize the tree selection.
